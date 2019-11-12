@@ -4,7 +4,7 @@ import api from '../utils/api';
 const Login = (props) => {
 	const [data, setData] = useState({
 		username: "",
-		password: "",
+		password: "i<3Lambd4",
 	})
 
 	const handleChange = (event) => {
@@ -18,9 +18,10 @@ const Login = (props) => {
 		console.log(data)
 		event.preventDefault();
         api().post(`/api/login`, data)
-        .then(response => {
+        	.then(response => {
 			console.log(response.data.payload)
-        localStorage.setItem("token", response.status.payload)
+			localStorage.setItem("token", response.data.payload)
+			props.history.push('/bubblepage');
 			})
 	    .catch(error => {
                 console.log(error);

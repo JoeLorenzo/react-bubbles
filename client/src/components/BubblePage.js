@@ -15,8 +15,7 @@ const BubblePage = () => {
   useEffect(() => {
 		api().get("/api/colors")
 			.then(response => {
-        console.log(`api color response ${Response}`)
-        setColorList(response)
+        setColorList(response.data)
 			})
 			.catch(error => {
 				console.log(error)
