@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios"
-import api from '../utils/api';
+import axiosWithAuth from '../utils/axiosWithAuth';
 const Login = (props) => {
 	const [data, setData] = useState({
 		username: "",
@@ -17,7 +17,7 @@ const Login = (props) => {
 	const handleSubmit = (event) => {
 		console.log(data)
 		event.preventDefault();
-        api().post(`/api/login`, data)
+        axiosWithAuth().post(`/api/login`, data)
         	.then(response => {
 			console.log(response.data.payload)
 			localStorage.setItem("token", response.data.payload)

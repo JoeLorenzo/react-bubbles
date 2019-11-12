@@ -12,7 +12,6 @@ function App() {
         {/*Links*/}
             <nav>
                 <div><Link to="/">Home</Link></div>
-                <div><Link to="/login">Log-in</Link></div>
                  <div><Link to="/bubblepage">Bubble Page</Link></div>
             </nav>
 
