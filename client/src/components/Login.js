@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios"
+import api from '../utils/api';
 const Login = (props) => {
 	const [data, setData] = useState({
 		username: "",
@@ -14,12 +15,12 @@ const Login = (props) => {
 	}
 
 	const handleSubmit = (event) => {
+		console.log(data)
 		event.preventDefault();
-        axios
-        .post(`http://localhost:5000/api/login`, data)
+        api().post(`/api/login`, data)
         .then(response => {
-            console.log(data)
-        localStorage.setItem("token", response.data.payload)
+			console.log(response.data.payload)
+        localStorage.setItem("token", response.status.payload)
 			})
 	    .catch(error => {
                 console.log(error);
